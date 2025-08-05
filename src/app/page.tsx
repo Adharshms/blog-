@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 
+
+
+
 type BlogPost = {
   userId: number
   id: number
@@ -41,13 +44,22 @@ export default function HomePage() {
     <main className="min-h-screen bg-[#141414] text-white px-4 sm:px-6 lg:px-12 py-12">
       {/* Header */}
       <header className="text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
-          Blogflix
-        </h1>
-        <p className="mt-4 text-lg text-neutral-400 max-w-2xl mx-auto">
-          Your personal streaming feed of thoughts, guides, and developer deep-dives.
-        </p>
-      </header>
+  <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
+    Blogflix
+  </h1>
+  <p className="mt-4 text-lg text-neutral-400 max-w-2xl mx-auto">
+    Your personal streaming feed of thoughts, guides, and developer deep-dives.
+  </p>
+  <div className="mt-4">
+    <Link
+      href="/about"
+      className="text-red-500 hover:underline font-medium"
+    >
+      About
+    </Link>
+  </div>
+</header>
+
 
       {/* Search */}
       <div className="max-w-md mx-auto mb-10">
@@ -118,6 +130,8 @@ export default function HomePage() {
         )}
       </section>
 
+      
+
       {/* CTA Section */}
       <section className="mt-24 text-center py-10 px-6 rounded-xl bg-gradient-to-r from-red-800 to-red-600 shadow-lg">
         <h3 className="text-2xl sm:text-3xl font-bold">Get the latest episodes</h3>
@@ -133,4 +147,6 @@ export default function HomePage() {
       </section>
     </main>
   )
+
+  
 }
