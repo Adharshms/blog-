@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import Image from 'next/image'
 
 type BlogPost = {
   userId: number
@@ -41,7 +42,7 @@ export default function HomePage() {
       {/* Header */}
       <header className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">
-           Blogflix
+          Blogflix
         </h1>
         <p className="mt-4 text-lg text-neutral-400 max-w-2xl mx-auto">
           Your personal streaming feed of thoughts, guides, and developer deep-dives.
@@ -79,12 +80,16 @@ export default function HomePage() {
                 className="bg-neutral-900 border border-neutral-800 rounded-xl overflow-hidden shadow-xl transition-all duration-300"
               >
                 <Link href={`/posts/${post.id}`}>
-                  <img
-                    src={imageUrl}
-                    alt={post.title}
-                    className="w-full h-48 sm:h-56 object-cover"
-                    loading="lazy"
-                  />
+                  <div className="relative w-full h-48 sm:h-56">
+                    <Image
+                      src={imageUrl}
+                      alt={post.title}
+                      fill
+                      className="object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
                 </Link>
                 <div className="p-5 flex flex-col h-full">
                   <Link href={`/posts/${post.id}`}>
@@ -127,7 +132,5 @@ export default function HomePage() {
         </Link>
       </section>
     </main>
-
-    
   )
 }
