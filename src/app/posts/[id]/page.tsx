@@ -8,14 +8,13 @@ type BlogPost = {
   body: string
 }
 
-// This is the correct type for dynamic route parameters in App Router
 type Props = {
   params: {
     id: string
   }
 }
 
-// ✅ SEO metadata function
+// SEO metadata
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
 
@@ -24,12 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post: BlogPost = await res.json()
 
   return {
-    title: `${post.title} | Adharsh's Blogflix`,
+    title: `${post.title} | Adharsh&apos;s Blogflix`,
     description: post.body.slice(0, 160),
   }
 }
 
-// ✅ Dynamic page
 export default async function PostPage({ params }: Props) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
 
@@ -57,21 +55,21 @@ export default async function PostPage({ params }: Props) {
 
         <section className="prose prose-invert prose-lg max-w-none text-gray-200">
           <p>
-            In today's ever-evolving landscape of technology, it's more important than ever to stay ahead of the curve. Whether you're a beginner or an experienced developer, the journey through code is both challenging and rewarding.
+            In today&apos;s ever-evolving landscape of technology, it&apos;s more important than ever to stay ahead of the curve. Whether you&apos;re a beginner or an experienced developer, the journey through code is both challenging and rewarding.
           </p>
 
           <p>
-            This article explores key principles and practical tips that can elevate your development workflow. Along the way, we’ll touch on tools, habits, and philosophies that have helped countless developers build better software.
+            This article explores key principles and practical tips that can elevate your development workflow. Along the way, we&apos;ll touch on tools, habits, and philosophies that have helped countless developers build better software.
           </p>
 
           <h2>The Importance of Writing Readable Code</h2>
 
           <p>
-            Writing code is easy. Writing readable, maintainable code is the real art. Naming conventions, consistent formatting, and meaningful comments play a huge role in making your code understandable—not just for others, but also for your future self.
+            Writing code is easy. Writing readable, maintainable code is the real art. Naming conventions, consistent formatting, and meaningful comments play a huge role in making your code understandable — not just for others, but also for your future self.
           </p>
 
           <blockquote>
-            “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” — Martin Fowler
+            &ldquo;Any fool can write code that a computer can understand. Good programmers write code that humans can understand.&rdquo; — Martin Fowler
           </blockquote>
 
           <h2>Essential Tools to Boost Productivity</h2>
@@ -79,7 +77,7 @@ export default async function PostPage({ params }: Props) {
           <ul>
             <li><strong>VS Code:</strong> Feature-rich editor with vast extensions.</li>
             <li><strong>Prettier + ESLint:</strong> Enforce clean formatting and code quality.</li>
-            <li><strong>Git & GitHub:</strong> Version control and collaboration are non-negotiable.</li>
+            <li><strong>Git &amp; GitHub:</strong> Version control and collaboration are non-negotiable.</li>
           </ul>
 
           <p>
@@ -89,13 +87,13 @@ export default async function PostPage({ params }: Props) {
           <h2>Learning Never Ends</h2>
 
           <p>
-            One of the most rewarding aspects of being in tech is the constant opportunity to learn. Read blogs, build side projects, contribute to open-source, and ask questions. The more curious you are, the faster you'll grow.
+            One of the most rewarding aspects of being in tech is the constant opportunity to learn. Read blogs, build side projects, contribute to open-source, and ask questions. The more curious you are, the faster you&apos;ll grow.
           </p>
 
           <h2>Final Thoughts</h2>
 
           <p>
-            Remember, the best developers aren't those who know everything—they're the ones who never stop learning. Stay passionate, build what you love, and help others along the way.
+            Remember, the best developers aren&apos;t those who know everything — they&apos;re the ones who never stop learning. Stay passionate, build what you love, and help others along the way.
           </p>
 
           <p>
