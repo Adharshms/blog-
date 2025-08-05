@@ -7,13 +7,8 @@ type BlogPost = {
   body: string
 }
 
-type Props = {
-  params: {
-    id: string
-  }
-}
-
-export default async function PostPage({ params }: Props) {
+// Vercel + App Router friendly param typing
+export default async function Page({ params }: { params: { id: string } }) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
 
   if (!res.ok) return notFound()
