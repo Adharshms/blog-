@@ -59,9 +59,10 @@ export default async function PostPage({
 
         {/* Blog Content */}
         <section className="prose prose-invert prose-lg max-w-none text-gray-200">
-          <p>
-            In today's ever-evolving landscape of technology, it's more important than ever to stay ahead of the curve...
-          </p>
+         <p>
+  In today&apos;s ever-evolving landscape of technology, it&apos;s more important than ever...
+</p>
+
 
           {/* ...rest of your content stays the same... */}
         </section>
