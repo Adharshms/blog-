@@ -8,14 +8,14 @@ type BlogPost = {
   body: string
 }
 
-type Props = {
+interface PageProps {
   params: {
     id: string
   }
 }
 
 // SEO metadata
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
 
   if (!res.ok) return {}
@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post: BlogPost = await res.json()
 
   return {
-    title: `${post.title} | Adharsh&apos;s Blogflix`,
+    title: `${post.title} | Adharsh's Blogflix`,
     description: post.body.slice(0, 160),
   }
 }
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage({ params }: PageProps) {
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`)
 
   if (!res.ok) return notFound()
